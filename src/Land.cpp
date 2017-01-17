@@ -15,11 +15,11 @@ Land::~Land(){
 
 }
 
-void Land::setWheels(int val){
+void Land::setWheels(string val){
     wheels=val;
 }
 
-int Land::getWheels(){
+string Land::getWheels(){
     return wheels;
 }
 
@@ -44,14 +44,15 @@ void Land::initElement(){
 }
 
 void Land::saveElement(char* fileName){
-	Transport::saveElement(fileName);
 	ofstream fout(fileName,ios::app);
 	if(fout.fail()){
-		cout<<"Ошибка чтения файла"<<endl;
+		cout<<"\nОшибка чтения файла\n"<<endl;
 		fout.close();
 	} else{
-
-		fout<<"Количество колес: "<<getWheels()<<endl;
+		fout<<"Наземный транспорт"<<endl;
+		fout<<getBrand()<<endl;
+		fout<<getPassengers()<<endl;
+		fout<<getWheels()<<endl;
 		fout.close();
 	}
 }

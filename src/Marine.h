@@ -8,16 +8,16 @@ using namespace std;
 class Marine:public Sea{
     public:
         Marine();
-        Marine(string);
+        Marine(string,string,string,string);
         ~Marine();
-        void setDeckSqare(int);
-        int getDeckSqare();
+        void setDeckSqare(string);
+        string getDeckSqare();
         void getParameters();
         void introduce();
         void initElement();
         void saveElement(char*);
     protected:
     private:
-        int deckSqare;
+        string deckSqare;
 };
 #endif // MARINE_H

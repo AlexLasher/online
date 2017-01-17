@@ -6,8 +6,11 @@ Marine::Marine()
     //ctor
 }
 
-Marine::Marine(string s){
-    setBrand(s);
+Marine::Marine(string name, string pass, string disp, string deck){
+    setBrand(name);
+    setPassengers(pass);
+    setDisplacement(disp);
+    setDeckSqare(deck);
 }
 
 Marine::~Marine()
@@ -15,11 +18,11 @@ Marine::~Marine()
     //dtor
 }
 
-void Marine::setDeckSqare(int val){
+void Marine::setDeckSqare(string val){
     deckSqare=val;
 }
 
-int Marine::getDeckSqare(){
+string Marine::getDeckSqare(){
     return deckSqare;
 }
 
@@ -44,13 +47,16 @@ void Marine::initElement(){
 }
 
 void Marine::saveElement(char* fileName){
-	Sea::saveElement(fileName);
 	ofstream fout(fileName,ios::app);
 	if(fout.fail()){
-		cout<<"Ошибка чтения файла"<<endl;
+		cout<<"\nОшибка чтения файла\n"<<endl;
 		fout.close();
 	} else{
-		fout<<"Площадь палубы: "<<getDeckSqare()<<endl;
+		fout<<"Корабль"<<endl;
+		fout<<getBrand()<<endl;
+		fout<<getPassengers()<<endl;
+		fout<<getDisplacement()<<endl;
+		fout<<getDeckSqare()<<endl;
 		fout.close();
 	}
 }

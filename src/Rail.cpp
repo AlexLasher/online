@@ -5,19 +5,22 @@ Rail::Rail(){
     //ctor
 }
 
-Rail::Rail(string s){
-    setBrand(s);
+Rail::Rail(string name,string pass,string wheel,string canvas){
+    setBrand(name);
+    setPassengers(pass);
+    setWheels(wheel);
+    setRailCanvasWidth(canvas);
 }
 
 Rail::~Rail(){
     //dtor
 }
 
-void Rail::setRailCanvasWidth(int val){
+void Rail::setRailCanvasWidth(string val){
     railCanvasWidth=val;
 }
 
-int Rail::getRailCanvasWidth(){
+string Rail::getRailCanvasWidth(){
     return railCanvasWidth;
 }
 
@@ -42,13 +45,16 @@ void Rail::initElement(){
 }
 
 void Rail::saveElement(char* fileName){
-	Land::saveElement(fileName);
 	ofstream fout(fileName,ios::app);
 	if(fout.fail()){
-		cout<<"Ошибка чтения файла"<<endl;
+		cout<<"\nОшибка чтения файла\n"<<endl;
 		fout.close();
 	} else{
-		fout<<"Ширина рельсового полотна: "<<getRailCanvasWidth()<<endl;
+		fout<<"Поезд"<<endl;
+		fout<<getBrand()<<endl;
+		fout<<getPassengers()<<endl;
+		fout<<getWheels()<<endl;
+		fout<<getRailCanvasWidth()<<endl;
 		fout.close();
 	}
 }

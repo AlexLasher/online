@@ -13,11 +13,11 @@ Sea::~Sea(){
 
 }
 
-void Sea::setDisplacement(int vol){
+void Sea::setDisplacement(string vol){
     displacement=vol;
 }
 
-int Sea::getDisplacement(){
+string Sea::getDisplacement(){
     return displacement;
 }
 
@@ -42,13 +42,15 @@ void Sea::initElement(){
 }
 
 void Sea::saveElement(char* fileName){
-	Transport::saveElement(fileName);
 	ofstream fout(fileName,ios::app);
 	if(fout.fail()){
-		cout<<"Ошибка чтения файла"<<endl;
+		cout<<"\nОшибка чтения файла\n"<<endl;
 		fout.close();
 	} else{
-		fout<<"Объем водоизмещения: "<<getDisplacement()<<endl;
+		fout<<"Морской транспорт"<<endl;
+		fout<<getBrand()<<endl;
+		fout<<getPassengers()<<endl;
+		fout<<getDisplacement()<<endl;
 		fout.close();
 	}
 }

@@ -8,17 +8,17 @@ using namespace std;
 class Road:public Land{
     public:
         Road();
-        Road(string);
+        Road(string,string,string,string);
         ~Road();
-        void setClearance(int);
-        int getClearance();
+        void setClearance(string);
+        string getClearance();
         void getParameters();
         void introduce();
         void initElement();
         void saveElement(char*);
     protected:
     private:
-        int clearance;
+        string clearance;
 };
 
 #endif // ROAD_H

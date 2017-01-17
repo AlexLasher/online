@@ -10,29 +10,29 @@ class Transport{
         Transport();
         Transport(string);
         ~Transport();
-        void setPassengers(int);
-        int getPassengers();
+        void setPassengers(string);
+        string getPassengers();
         void setBrand(string);
         string getBrand();
         virtual void saveElement(char*);
         virtual void initElement();
         virtual void getParameters();
         virtual void introduce();
-        virtual void setWheels(int s){}
-        virtual int getWheels(){return -1;}
-        virtual void setDisplacement(int s){}
-		virtual int getDisplacement(){return -1;}
-		virtual void setRailCanvasWidth(int s){}
-		virtual int getRailCanvasWidth(){return -1;}
-		virtual void setClearance(int s){}
-        virtual int getClearance(){return -1;}
-        virtual void setDeckSqare(int s){}
-        virtual int getDeckSqare(){return -1;}
-        virtual void setImmersionDepth(int s){}
-        virtual int getImmersionDepth(){return -1;}
+        virtual void setWheels(string s){}
+        virtual string getWheels(){return 0;}
+        virtual void setDisplacement(string s){}
+		virtual string getDisplacement(){return 0;}
+		virtual void setRailCanvasWidth(string s){}
+		virtual string getRailCanvasWidth(){return 0;}
+		virtual void setClearance(string s){}
+        virtual string getClearance(){return 0;}
+        virtual void setDeckSqare(string s){}
+        virtual string getDeckSqare(){return 0;}
+        virtual void setImmersionDepth(string s){}
+        virtual string getImmersionDepth(){return 0;}
     protected:
     private:
-        int passengers;
+        string passengers;
         string brand;
 };
 

@@ -8,17 +8,17 @@ using namespace std;
 class Submarine:public Sea{
     public:
         Submarine();
-        Submarine(string);
+        Submarine(string,string,string,string);
         ~Submarine();
-        void setImmersionDepth(int);
-        int getImmersionDepth();
+        void setImmersionDepth(string);
+        string getImmersionDepth();
         void getParameters();
         void introduce();
         void initElement();
         void saveElement(char*);
     protected:
     private:
-        int immersionDepth;
+        string immersionDepth;
 };
 
 #endif // SUBMARINE_H

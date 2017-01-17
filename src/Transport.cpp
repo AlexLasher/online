@@ -18,11 +18,11 @@ using namespace std;
         //dtor
     }
 
-    void Transport::setPassengers(int val){
+    void Transport::setPassengers(string val){
         passengers=val;
     }
 
-    int Transport::getPassengers(){
+    string Transport::getPassengers(){
         return passengers;
     }
 
@@ -59,11 +59,12 @@ using namespace std;
     	ofstream fout;
     	fout.open(fileName,ios::app);
     	if(fout.fail()){
-    		cout<<"Ошибка чтения файла"<<endl;
+    		cout<<"\nОшибка чтения файла\n"<<endl;
     		fout.close();
     	} else{
-    		fout<<"Название транспорта: "<<getBrand()<<endl;
-    		fout<<"Вместимость пассажиров: "<<getPassengers()<<endl;
+    		fout<<"Транспорт"<<endl;
+    		fout<<getBrand()<<endl;
+    		fout<<getPassengers()<<endl;
     		fout.close();
     	}
     }

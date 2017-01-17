@@ -5,19 +5,22 @@ Road::Road(){
     //ctor
 }
 
-Road::Road(string s){
-    setBrand(s);
+Road::Road(string name,string pass,string wheel,string clear){
+    setBrand(name);
+    setPassengers(pass);
+    setWheels(wheel);
+    setClearance(clear);
 }
 
 Road::~Road(){
     //dtor
 }
 
-void Road::setClearance(int val){
+void Road::setClearance(string val){
     clearance=val;
 }
 
-int Road::getClearance(){
+string Road::getClearance(){
     return clearance;
 }
 
@@ -42,13 +45,16 @@ void Road::initElement(){
 }
 
 void Road::saveElement(char* fileName){
-	Land::saveElement(fileName);
 	ofstream fout(fileName,ios::app);
 	if(fout.fail()){
-		cout<<"Ошибка чтения файла"<<endl;
+		cout<<"\nОшибка чтения файла\n"<<endl;
 		fout.close();
 	} else{
-		fout<<"Значение клиренса: "<<getClearance()<<endl;
+		fout<<"Автомобиль"<<endl;
+		fout<<getBrand()<<endl;
+		fout<<getPassengers()<<endl;
+		fout<<getWheels()<<endl;
+		fout<<getClearance()<<endl;
 		fout.close();
 	}
 }

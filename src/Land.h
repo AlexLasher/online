@@ -11,15 +11,15 @@ class Land:public Transport{
         Land();
         Land(string);
         ~Land();
-        void setWheels(int);
-		int getWheels();
+        void setWheels(string);
+		string getWheels();
 		void getParameters();
 		void introduce();
 		void initElement();
 		void saveElement(char*);
     protected:
     private:
-        int wheels;
+		string wheels;
 };
 
 #endif // LAND_H

@@ -9,15 +9,15 @@ class Sea:public Transport{
         Sea();
         Sea(string);
         ~Sea();
-        void setDisplacement(int);
-		int getDisplacement();
+        void setDisplacement(string);
+        string getDisplacement();
         void getParameters();
         void introduce();
         void initElement();
         void saveElement(char*);
     protected:
     private:
-        int displacement;
+        string displacement;
 };
 
 #endif // SEA_H

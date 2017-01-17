@@ -8,17 +8,17 @@ using namespace std;
 class Rail:public Land{
     public:
         Rail();
-        Rail(string);
+        Rail(string,string,string,string);
         ~Rail();
-        void setRailCanvasWidth(int);
-		int getRailCanvasWidth();
+        void setRailCanvasWidth(string);
+        string getRailCanvasWidth();
 		void getParameters();
 		void introduce();
 		void initElement();
 		void saveElement(char*);
     protected:
     private:
-        int railCanvasWidth;
+		string railCanvasWidth;
 };
 
 #endif // RAIL_H

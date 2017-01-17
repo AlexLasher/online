@@ -16,8 +16,12 @@ ostream & operator << (ostream & ,MyList);
 
 void SaveList(MyList,char*);
 
-void DeleteElement(MyList,unsigned int);
+MyList LoadList(MyList, char*);
 
-void DeleteElement(MyList,string);
+MyList DeleteElement(MyList,unsigned int);
+
+MyList DeleteElement(MyList);
+
+void FindElement(MyList lst);
 
 #endif // MYLIST_H_INCLUDED

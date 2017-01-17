@@ -5,19 +5,22 @@ Submarine::Submarine(){
     //ctor
 }
 
-Submarine::Submarine(string s){
-    setBrand(s);
+Submarine::Submarine(string name, string pass, string disp, string immersion){
+    setBrand(name);
+    setPassengers(pass);
+    setDisplacement(disp);
+    setImmersionDepth(immersion);
 }
 
 Submarine::~Submarine(){
     //dtor
 }
 
-void Submarine::setImmersionDepth(int val){
+void Submarine::setImmersionDepth(string val){
     immersionDepth=val;
 }
 
-int Submarine::getImmersionDepth(){
+string Submarine::getImmersionDepth(){
     return immersionDepth;
 }
 
@@ -42,13 +45,16 @@ void Submarine::initElement(){
 }
 
 void Submarine::saveElement(char* fileName){
-	Sea::saveElement(fileName);
 	ofstream fout(fileName,ios::app);
 	if(fout.fail()){
-		cout<<"Ошибка чтения файла"<<endl;
+		cout<<"\nОшибка чтения файла\n"<<endl;
 		fout.close();
 	} else{
-		fout<<"Глубина погружения: "<<getImmersionDepth()<<endl;
+		fout<<"Подлодка"<<endl;
+		fout<<getBrand()<<endl;
+		fout<<getPassengers()<<endl;
+		fout<<getDisplacement()<<endl;
+		fout<<getImmersionDepth()<<endl;
 		fout.close();
 	}
 }

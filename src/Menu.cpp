@@ -18,11 +18,13 @@ void Start(){
 	bool exit=false;
 	MyList lst;
 	while(!exit){
-		cout<<"Выберите пункт меню:"<<endl;
+		cout<<"\nВыберите пункт меню:"<<endl;
 		cout<<"1. Создать новый объект"<<endl;
 		cout<<"2. Просмотреть лист объектов"<<endl;
 		cout<<"3. Сохранить лист объектов в файл"<<endl;
 		cout<<"4. Загрузить лист объектов из файла"<<endl;
+		cout<<"5. Найти элемент в списке"<<endl;
+		cout<<"6. Удалить элемент из списка"<<endl;
 		cout<<"0. Выйти из программы"<<endl;
     	while (!(cin >> choice)){
 			cin.clear();
@@ -39,13 +41,24 @@ void Start(){
 		case 3:
 			cin.ignore();
 			cout<<"Введите название записываемого файла"<<endl;
-			char* fileName;
-			fileName=(char*)malloc(20*sizeof(char));
-			gets(fileName);
-			SaveList(lst,fileName);
+			char* outFileName;
+			outFileName=(char*)malloc(20*sizeof(char));
+			gets(outFileName);
+			SaveList(lst,outFileName);
 			break;
 		case 4:
-
+			cin.ignore();
+			cout<<"Введите название исходного файла"<<endl;
+			char* inFileName;
+			inFileName=(char*)malloc(20*sizeof(char));
+			gets(inFileName);
+			lst = LoadList(lst,inFileName);
+			break;
+		case 5:
+			FindElement(lst);
+			break;
+		case 6:
+			lst = DeleteElement(lst);
 			break;
 		case 0:
 			exit=true;
@@ -60,14 +73,11 @@ void CreateObj(MyList &lst){
 	bool exit=false;
 	Transport *tr;
 	while(!exit){
-		cout<<"Выберит создаваемый объект:"<<endl;
-		cout<<"1. Асбтрактный транспорт"<<endl;
-		cout<<"2. Наземный транспорт"<<endl;
-		cout<<"3. Морской транспорт"<<endl;
-		cout<<"4. Автомобиль"<<endl;
-		cout<<"5. Поезд"<<endl;
-		cout<<"6. Корабль"<<endl;
-		cout<<"7. Подводная лодка"<<endl;
+	cout<<"\nВыберите создаваемый объект:"<<endl;
+		cout<<"1. Автомобиль"<<endl;
+		cout<<"2. Поезд"<<endl;
+		cout<<"3. Корабль"<<endl;
+		cout<<"4. Подводная лодка"<<endl;
 		cout<<"0. Выйти в главное меню"<<endl;
     	while (!(cin >> choice)){
 			cin.clear();
@@ -76,36 +86,21 @@ void CreateObj(MyList &lst){
     	}
 		switch(choice){
 		case 1:
-			tr = new Transport();
-			tr->initElement();
-			lst.push_back(tr);
-			break;
-		case 2:
-			tr = new Land();
-			tr->initElement();
-			lst.push_back(tr);
-			break;
-		case 3:
-			tr = new Sea();
-			tr->initElement();
-			lst.push_back(tr);
-			break;
-		case 4:
 			tr = new Road();
 			tr->initElement();
 			lst.push_back(tr);
 			break;
-		case 5:
+		case 2:
 			tr = new Rail();
 			tr->initElement();
 			lst.push_back(tr);
 			break;
-		case 6:
+		case 3:
 			tr = new Marine();
 			tr->initElement();
 			lst.push_back(tr);
 			break;
-		case 7:
+		case 4:
 			tr = new Submarine();
 			tr->initElement();
 			lst.push_back(tr);

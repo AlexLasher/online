@@ -52,13 +52,13 @@ void Start(){
 			char* inFileName;
 			inFileName=(char*)malloc(20*sizeof(char));
 			gets(inFileName);
-			lst = LoadList(lst,inFileName);
+			LoadList(lst,inFileName);
 			break;
 		case 5:
 			FindElement(lst);
 			break;
 		case 6:
-			lst = DeleteElement(lst);
+			DeleteElement(lst);
 			break;
 		case 0:
 			exit=true;

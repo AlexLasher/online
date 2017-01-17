@@ -16,11 +16,11 @@ ostream & operator << (ostream & ,MyList);
 
 void SaveList(MyList,char*);
 
-MyList LoadList(MyList, char*);
+void LoadList(MyList&, char*);
 
 MyList DeleteElement(MyList,unsigned int);
 
-MyList DeleteElement(MyList);
+void DeleteElement(MyList&);
 
 void FindElement(MyList lst);
 

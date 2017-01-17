@@ -34,7 +34,7 @@ void SaveList(MyList lst, char* fileName){
 	}
 }
 
-MyList LoadList(MyList lst, char* fileName){
+void LoadList(MyList &lst, char* fileName){
 	string type, name, firstParam, secParam, thirdParam;
 	MyIterator pos; Transport *tr;
 	ifstream fin(fileName);
@@ -64,7 +64,6 @@ MyList LoadList(MyList lst, char* fileName){
 		}
 		fin.close();
 	}
-	return lst;
 }
 
 MyList DeleteElement(MyList lst,unsigned int n){
@@ -78,7 +77,7 @@ MyList DeleteElement(MyList lst,unsigned int n){
 	return lst;
 }
 
-MyList DeleteElement(MyList lst){
+void DeleteElement(MyList& lst){
     MyIterator pos = lst.begin();
     Transport* tr;
 	string elementName;
@@ -96,7 +95,6 @@ MyList DeleteElement(MyList lst){
         lst.erase(pos);
         cout<<"Ёлемент "<< elementName << " удален"<<endl;
     }
-	return lst;
 }
 void FindElement(MyList lst){
 	MyIterator pos = lst.begin();
